@@ -12,9 +12,9 @@ const bases: Dictionary[Vector3, Basis] = {
 }
 @export var face: PlaneMesh
 
-const sidelen := 16  # 48
-const chunkquant := 1  # 8
-const cubequant := 16
+const sidelen := 48  # 48
+const chunkquant := 6  # 8
+const cubequant := 20
 const thresh := -0.25
 @export var noise: FastNoiseLite
 @export var material: Material

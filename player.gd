@@ -15,7 +15,7 @@ const sensitivity := 0.005
 const acc := 2 ** 7.5
 const friction := 2 ** -20.
 const gravity := 25.
-const jumpspeed := 20.
+const jumpspeed := 25.
 const dashspeed := 32.
 const dashtime := 0.6
 
