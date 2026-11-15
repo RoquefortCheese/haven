@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://b4locmxaumksb"]
+
+[ext_resource type="Script" uid="uid://dna1ruux8mf6i" path="res://player.gd" id="1_4flbx"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_0u6kl"]
+height = 2.5
+radius = 0.4
+
+[node name="Player" type="CharacterBody3D" unique_id=1643355844]
+script = ExtResource("1_4flbx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1205774998]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
+shape = SubResource("CylinderShape3D_0u6kl")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=901291830]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25, 0)
+fov = 90.0
+
+[node name="CamDir" type="Node3D" parent="Camera3D" unique_id=29629950]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)

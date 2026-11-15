@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://dp1pmm5vh5c47"]
+
+[ext_resource type="Script" uid="uid://deuya0v42kd3d" path="res://terrain.gd" id="1_206su"]
+[ext_resource type="Shader" uid="uid://jhwp7vuhfime" path="res://terrain.gdshader" id="2_0u6kl"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_206su"]
+flip_faces = true
+size = Vector2(1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_206su"]
+noise_type = 5
+frequency = 0.05
+fractal_octaves = 6
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_0u6kl"]
+frequency = 0.05
+
+[sub_resource type="NoiseTexture3D" id="NoiseTexture3D_avahw"]
+width = 256
+height = 256
+depth = 256
+noise = SubResource("FastNoiseLite_0u6kl")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_206su"]
+render_priority = 0
+shader = ExtResource("2_0u6kl")
+shader_parameter/shadow = SubResource("NoiseTexture3D_avahw")
+
+[node name="Terrain" type="Node3D" unique_id=944790773]
+script = ExtResource("1_206su")
+face = SubResource("PlaneMesh_206su")
+noise = SubResource("FastNoiseLite_206su")
+material = SubResource("ShaderMaterial_206su")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=643797842]
+
+[node name="Cubes" type="Node3D" parent="." unique_id=1043592266]

@@ -1,6 +1,71 @@
 [gd_scene format=3 uid="uid://bchsvdgiygtud"]
 
 [ext_resource type="Script" uid="uid://yy3h3t2o2vbq" path="res://world.gd" id="1_f3sb7"]
+[ext_resource type="PackedScene" uid="uid://dp1pmm5vh5c47" path="res://terrain.tscn" id="2_fj7yv"]
+[ext_resource type="PackedScene" uid="uid://b4locmxaumksb" path="res://player.tscn" id="3_tlwt5"]
+[ext_resource type="FontFile" uid="uid://bmcb6lyqf3gbk" path="res://XanhMono-Regular.ttf" id="4_aqk2v"]
+[ext_resource type="Texture2D" uid="uid://0kgmoljrlahm" path="res://obama.jpg" id="5_036b0"]
+
+[sub_resource type="Environment" id="Environment_fj7yv"]
+background_mode = 1
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.4
+reflected_light_source = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_6fcjw"]
+line_spacing = 0.0
+font = ExtResource("4_aqk2v")
+font_size = 40
 
 [node name="World" type="Node" unique_id=1848089447]
 script = ExtResource("1_f3sb7")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1971116650]
+environment = SubResource("Environment_fj7yv")
+
+[node name="SON" type="Node3D" parent="." unique_id=1299757271]
+
+[node name="SunOne" type="DirectionalLight3D" parent="SON" unique_id=1323748983]
+transform = Transform3D(0.8660254, -0.3535534, 0.3535534, 0, 0.7071068, 0.7071068, -0.5, -0.61237246, 0.61237246, 0, 0, 0)
+light_energy = 0.4
+sky_mode = 1
+directional_shadow_fade_start = 0.0
+directional_shadow_max_distance = 8192.0
+directional_shadow_pancake_size = 0.0
+
+[node name="SunTwo" type="DirectionalLight3D" parent="SON" unique_id=1377544774]
+transform = Transform3D(-0.7071068, -0.6123725, 0.35355338, 0, 0.5, 0.86602545, -0.7071068, 0.61237246, -0.35355335, 0, 0, 0)
+light_energy = 0.4
+sky_mode = 1
+
+[node name="Terrain" parent="." unique_id=944790773 instance=ExtResource("2_fj7yv")]
+
+[node name="Player" parent="." unique_id=1643355844 instance=ExtResource("3_tlwt5")]
+
+[node name="ScoreLabel" type="Label" parent="." unique_id=1191345626]
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 80.0
+offset_bottom = 80.0
+label_settings = SubResource("LabelSettings_6fcjw")
+
+[node name="TimeLabel" type="Label" parent="." unique_id=1977087137]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -100.0
+offset_top = 40.0
+offset_right = -40.0
+offset_bottom = 88.0
+grow_horizontal = 0
+label_settings = SubResource("LabelSettings_6fcjw")
+horizontal_alignment = 2
+
+[node name="Obama" type="TextureRect" parent="." unique_id=1650920028]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_036b0")

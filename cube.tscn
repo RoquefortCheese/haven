@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://csp66ox5ivk07"]
+
+[ext_resource type="Script" uid="uid://y0ii0f1ndrls" path="res://cube.gd" id="1_jbd7x"]
+[ext_resource type="Shader" uid="uid://culfkb41lwnd2" path="res://cube.gdshader" id="2_wd2d1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wd2d1"]
+render_priority = 0
+shader = ExtResource("2_wd2d1")
+
+[sub_resource type="BoxMesh" id="BoxMesh_xc3wn"]
+material = SubResource("ShaderMaterial_wd2d1")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_wd2d1"]
+radius = 4.0
+
+[node name="Cube" type="Area3D" unique_id=1316070317]
+script = ExtResource("1_jbd7x")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=410443965]
+mesh = SubResource("BoxMesh_xc3wn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=829023387]
+shape = SubResource("SphereShape3D_wd2d1")
