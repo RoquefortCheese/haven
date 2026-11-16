@@ -24,4 +24,7 @@ func _process(delta: float) -> void:
 		Global.world.score += 1
 	if taken:
 		scalefactor = max(0, scalefactor - delta * 4)
-	scale = Vector3.ONE * scalefactor
+	if scalefactor > 0:
+		scale = Vector3.ONE * scalefactor
+	else:
+		visible = false
